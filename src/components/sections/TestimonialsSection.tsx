@@ -14,7 +14,7 @@ export function TestimonialsSection() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-28 px-6 bg-[var(--color-cream)]">
+    <section className="py-16 md:py-24 lg:py-28 px-4 md:px-6 bg-[var(--color-cream)]">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -36,10 +36,17 @@ export function TestimonialsSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: false }}
           transition={{ duration: 0.8 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4 h-[560px] overflow-hidden"
+          className="grid grid-cols-1 md:grid-cols-2 gap-4 h-[400px] md:h-[560px] overflow-hidden"
         >
-          <ReviewsColumn testimonials={col1} direction="up" speed={32} />
-          <ReviewsColumn testimonials={col2} direction="down" speed={28} />
+          <div className="md:hidden">
+            <ReviewsColumn testimonials={testimonials} direction="up" speed={32} />
+          </div>
+          <div className="hidden md:block">
+            <ReviewsColumn testimonials={col1} direction="up" speed={32} />
+          </div>
+          <div className="hidden md:block">
+            <ReviewsColumn testimonials={col2} direction="down" speed={28} />
+          </div>
         </motion.div>
       </div>
     </section>

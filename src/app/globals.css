@@ -109,3 +109,23 @@ body {
 .animate-gold-glow {
   animation: gold-glow 2.5s ease-in-out infinite;
 }
+
+/* ─── Hardware Accelerated Marquee ──────────────────────────── */
+@keyframes marquee-up {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+
+@keyframes marquee-down {
+  from { transform: translateY(-50%); }
+  to { transform: translateY(0); }
+}
+
+.animate-marquee-up {
+  animation: marquee-up linear infinite;
+}
+
+.animate-marquee-down {
+  animation: marquee-down linear infinite;
+}
+

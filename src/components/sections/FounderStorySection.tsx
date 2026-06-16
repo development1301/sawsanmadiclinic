@@ -13,7 +13,7 @@ export function FounderStorySection() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
   return (
-    <section ref={ref} className="relative py-32 bg-transparent overflow-hidden">
+    <section ref={ref} className="relative py-20 md:py-32 px-4 md:px-6 bg-transparent overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
         
         <motion.div
@@ -26,7 +26,7 @@ export function FounderStorySection() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[var(--color-primary-10)] rounded-full blur-3xl mix-blend-multiply opacity-50 pointer-events-none" />
           
           <TiltCard intensity={15}>
-            <div className="relative w-full aspect-[3/4] rounded-[var(--radius-card)] overflow-hidden shadow-[var(--shadow-card)] border border-white/60 bg-white/40 backdrop-blur-xl">
+            <div className="relative w-full aspect-[3/4] rounded-[var(--radius-card)] overflow-hidden shadow-[var(--shadow-card)] border border-white/60 bg-white/40 backdrop-blur-sm md:backdrop-blur-xl">
               <Image
                 src="https://framerusercontent.com/images/otmCRs360ZaE1bs3A5FLXBcM76o.png"
                 alt="Founder in the clinic"

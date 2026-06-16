@@ -8,7 +8,7 @@ interface TestimonialCardProps {
 
 export function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
-    <div className="bg-white/50 backdrop-blur-md rounded-[var(--radius-card)] p-5 shadow-[var(--shadow-card)] border border-white flex flex-col gap-3 transition-transform duration-300 hover:scale-[1.02]">
+    <div className="bg-white/50 backdrop-blur-sm md:backdrop-blur-md rounded-[var(--radius-card)] p-5 shadow-[var(--shadow-card)] border border-white flex flex-col gap-3 transition-transform duration-300 hover:scale-[1.02]">
       <StarRating rating={testimonial.rating} />
       <p className="text-[var(--color-body)] text-sm leading-relaxed">
         &ldquo;{testimonial.text}&rdquo;

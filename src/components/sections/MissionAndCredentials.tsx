@@ -9,7 +9,7 @@ export function MissionAndCredentials() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-24 px-6 bg-transparent relative z-10">
+    <section className="py-16 md:py-24 px-4 md:px-6 bg-transparent relative z-10">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
@@ -29,7 +29,7 @@ export function MissionAndCredentials() {
               whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
               viewport={{ once: false }}
               transition={{ duration: 0.8, type: "spring" }}
-              className="bg-white/40 backdrop-blur-xl rounded-[var(--radius-card)] border border-white/60 shadow-[var(--shadow-card)] p-8 h-full flex flex-col justify-center"
+              className="bg-white/40 backdrop-blur-sm md:backdrop-blur-xl rounded-[var(--radius-card)] border border-white/60 shadow-[var(--shadow-card)] p-8 h-full flex flex-col justify-center"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-full bg-[var(--color-primary-10)] flex items-center justify-center">
@@ -52,7 +52,7 @@ export function MissionAndCredentials() {
               whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
               viewport={{ once: false }}
               transition={{ duration: 0.8, delay: 0.1, type: "spring" }}
-              className="bg-white/40 backdrop-blur-xl rounded-[var(--radius-card)] border border-white/60 shadow-[var(--shadow-card)] p-8 flex flex-col justify-center items-center text-center h-full"
+              className="bg-white/40 backdrop-blur-sm md:backdrop-blur-xl rounded-[var(--radius-card)] border border-white/60 shadow-[var(--shadow-card)] p-8 flex flex-col justify-center items-center text-center h-full"
             >
               <p className="text-6xl font-bold text-[var(--color-dark)] flex items-baseline">
                 <AnimatedNumber value={15} />+

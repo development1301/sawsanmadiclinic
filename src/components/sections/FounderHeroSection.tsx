@@ -14,7 +14,7 @@ export function FounderHeroSection() {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <section ref={ref} className="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-24">
+    <section ref={ref} className="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-16 md:py-24 px-4 md:px-6">
       <div className="absolute inset-0 pointer-events-none -z-10">
         <motion.div 
           className="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] rounded-full bg-[var(--color-primary-10)] mix-blend-multiply blur-3xl opacity-70"
@@ -55,7 +55,7 @@ export function FounderHeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           style={{ y }}
-          className="relative w-full aspect-[4/5] md:aspect-[3/4] lg:aspect-[4/5] rounded-[var(--radius-card)] overflow-hidden shadow-[var(--shadow-card)] border border-white/60 bg-white/40 backdrop-blur-xl group cursor-pointer"
+          className="relative w-full aspect-[4/5] md:aspect-[3/4] lg:aspect-[4/5] rounded-[var(--radius-card)] overflow-hidden shadow-[var(--shadow-card)] border border-white/60 bg-white/40 backdrop-blur-sm md:backdrop-blur-xl group cursor-pointer"
           onClick={() => setIsPlaying(!isPlaying)}
         >
           <Image

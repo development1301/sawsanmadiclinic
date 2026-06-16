@@ -21,7 +21,7 @@ export function TreatmentsSection() {
   return (
     <section
       id="services"
-      className="py-28 px-6 bg-[var(--color-cream-light)]"
+      className="py-16 md:py-24 lg:py-28 px-4 md:px-6 bg-[var(--color-cream-light)]"
     >
       <div className="max-w-4xl mx-auto">
         {/* Header */}

@@ -28,7 +28,7 @@ export function DoctorSection() {
   ];
 
   return (
-    <section className="relative py-28 px-6 overflow-hidden bg-[var(--color-cream)]">
+    <section className="relative py-16 md:py-24 lg:py-28 px-4 md:px-6 overflow-hidden bg-[var(--color-cream)]">
       {/* Decorative Aura */}
       <motion.div 
         className="absolute top-[20%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-[var(--color-primary-10)] mix-blend-multiply blur-[100px] opacity-50 z-0"

@@ -21,12 +21,18 @@ export function TiltCard({ children, className, intensity = 10 }: TiltCardProps)
   const mouseXSpring = useSpring(x, springConfig);
   const mouseYSpring = useSpring(y, springConfig);
 
+  // Check if touch device (only run once on mount)
+  const isTouchDevice = useRef(false);
+  if (typeof window !== "undefined" && !isTouchDevice.current) {
+    isTouchDevice.current = window.matchMedia("(hover: none) and (pointer: coarse)").matches || window.innerWidth < 768;
+  }
+
   // Map 0-1 values to degrees
   const rotateX = useTransform(mouseYSpring, [0, 1], [intensity, -intensity]);
   const rotateY = useTransform(mouseXSpring, [0, 1], [-intensity, intensity]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
+    if (!ref.current || isTouchDevice.current) return;
     const rect = ref.current.getBoundingClientRect();
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;

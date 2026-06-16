@@ -23,7 +23,7 @@ export function CtaSection() {
   };
 
   return (
-    <section className="py-28 px-6 bg-transparent relative">
+    <section className="py-16 md:py-24 lg:py-28 px-4 md:px-6 bg-transparent relative">
       <div className="max-w-5xl mx-auto perspective-1000 relative z-10">
         <motion.div
           ref={ref}

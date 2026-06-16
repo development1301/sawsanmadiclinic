@@ -101,7 +101,7 @@ export function HeroSection() {
           animate="show"
           className="text-center max-w-4xl mx-auto mb-6 flex flex-col items-center"
         >
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif text-[var(--color-primary-dark)] leading-tight flex flex-wrap justify-center gap-x-3 gap-y-1">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif text-[var(--color-primary-dark)] leading-tight flex flex-wrap justify-center gap-x-2 md:gap-x-3 gap-y-1">
             {t.hero.tagline.split(" ").map((word, i) => (
               <span key={i} className="overflow-hidden inline-block pb-2">
                 <motion.span variants={wordVars} className="inline-block">
@@ -139,14 +139,14 @@ export function HeroSection() {
           <p className="text-xs font-semibold uppercase tracking-widest text-[var(--color-primary)] text-center mb-6">
             Explore our specialities
           </p>
-          <div className="flex flex-wrap justify-center gap-3 md:gap-6">
+          <div className="flex md:flex-wrap overflow-x-auto scrollbar-hide snap-x justify-start md:justify-center gap-3 md:gap-6 pb-4 px-6 md:px-0 w-[100vw] md:w-auto -ml-6 md:ml-0 max-w-[100vw]">
             {treatments.map((tr, i) => (
               <Link
                 href={`/${locale}/services#${tr.id}`}
                 key={tr.id}
                 onMouseEnter={() => setActiveIndex(i)}
                 onMouseLeave={() => setActiveIndex(null)}
-                className={`relative px-5 py-3 rounded-full cursor-pointer transition-all duration-500 overflow-hidden backdrop-blur-md border ${
+                className={`relative flex-shrink-0 snap-center px-5 py-3 rounded-full cursor-pointer transition-all duration-500 overflow-hidden backdrop-blur-md border ${
                   activeIndex === i 
                     ? "bg-white/70 border-[var(--color-primary)] shadow-[0_4px_20px_rgba(212,175,55,0.3)] scale-105" 
                     : "bg-white/30 border-white/40 hover:bg-white/50 text-[var(--color-body)] scale-100"

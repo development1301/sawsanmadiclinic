@@ -12,7 +12,7 @@ export function ResultsSection() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-28 px-6 bg-transparent relative">
+    <section className="py-16 md:py-24 lg:py-28 px-4 md:px-6 bg-transparent relative">
       <div className="max-w-6xl mx-auto perspective-1000 relative z-10">
         {/* Title */}
         <motion.h2
@@ -52,7 +52,7 @@ export function ResultsSection() {
               whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
               viewport={{ once: false }}
               transition={{ duration: 0.8, delay: 0.1, type: "spring", stiffness: 100 }}
-              className="bg-white/40 backdrop-blur-xl rounded-[var(--radius-card)] overflow-hidden border border-white/60 shadow-[var(--shadow-card)] relative min-h-[160px] h-full cursor-default transform-gpu group"
+              className="bg-white/40 backdrop-blur-sm md:backdrop-blur-xl rounded-[var(--radius-card)] overflow-hidden border border-white/60 shadow-[var(--shadow-card)] relative min-h-[160px] h-full cursor-default transform-gpu group"
             >
               <Image
                 src="https://framerusercontent.com/images/x5bU5fSGGaNxXqI2iAQqSZi8nA4.jpg?width=810&height=649"
@@ -76,7 +76,7 @@ export function ResultsSection() {
               whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
               viewport={{ once: false }}
               transition={{ duration: 0.8, delay: 0.15, type: "spring", stiffness: 100 }}
-              className="bg-white/40 backdrop-blur-xl rounded-[var(--radius-card)] border border-white/60 shadow-[var(--shadow-card)] p-6 flex flex-col gap-3 h-full cursor-default transform-gpu"
+              className="bg-white/40 backdrop-blur-sm md:backdrop-blur-xl rounded-[var(--radius-card)] border border-white/60 shadow-[var(--shadow-card)] p-6 flex flex-col gap-3 h-full cursor-default transform-gpu"
             >
               <p className="text-4xl md:text-5xl font-bold text-[var(--color-dark)] flex items-baseline">
                 <AnimatedNumber value={10} />+
@@ -107,7 +107,7 @@ export function ResultsSection() {
               whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
               viewport={{ once: false }}
               transition={{ duration: 0.8, delay: 0.2, type: "spring", stiffness: 100 }}
-              className="bg-white/40 backdrop-blur-xl rounded-[var(--radius-card)] border border-white/60 shadow-[var(--shadow-card)] p-6 flex flex-col gap-3 h-full cursor-default transform-gpu"
+              className="bg-white/40 backdrop-blur-sm md:backdrop-blur-xl rounded-[var(--radius-card)] border border-white/60 shadow-[var(--shadow-card)] p-6 flex flex-col gap-3 h-full cursor-default transform-gpu"
             >
               <div className="flex -space-x-2">
                 {[
@@ -139,7 +139,7 @@ export function ResultsSection() {
               whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
               viewport={{ once: false }}
               transition={{ duration: 0.8, delay: 0.25, type: "spring", stiffness: 100 }}
-              className="bg-white/40 backdrop-blur-xl rounded-[var(--radius-card)] border border-white/60 shadow-[var(--shadow-card)] p-6 flex flex-col gap-2 h-full cursor-default transform-gpu"
+              className="bg-white/40 backdrop-blur-sm md:backdrop-blur-xl rounded-[var(--radius-card)] border border-white/60 shadow-[var(--shadow-card)] p-6 flex flex-col gap-2 h-full cursor-default transform-gpu"
             >
               <div className="flex gap-0.5 text-[var(--color-amber)]">★★★★★</div>
               <p className="text-5xl font-bold text-[var(--color-dark)] flex items-baseline">

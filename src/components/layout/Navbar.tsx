@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { BookButton } from "@/components/ui/BookButton";
 import Link from "next/link";
 import Image from "next/image";
@@ -20,7 +20,17 @@ export function Navbar() {
   const { locale, t } = useLanguage();
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
+
+  // Prevent scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [isMobileMenuOpen]);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest > 60);
@@ -57,7 +67,7 @@ export function Navbar() {
         </nav>
 
         {/* Center Logo */}
-        <div className="flex justify-center w-full md:w-1/3 flex-none">
+        <div className="flex justify-start md:justify-center w-auto md:w-1/3 flex-none relative z-50">
           <Link href="/">
             <motion.div
               whileHover={{ scale: 1.05 }}
@@ -134,12 +144,63 @@ export function Navbar() {
         </div>
 
         {/* Mobile hamburger */}
-        <button className="md:hidden flex flex-col gap-1.5 p-2 ml-auto">
-          <span className="w-5 h-0.5 bg-[var(--color-primary-dark)] block rounded" />
-          <span className="w-5 h-0.5 bg-[var(--color-primary-dark)] block rounded" />
-          <span className="w-5 h-0.5 bg-[var(--color-primary-dark)] block rounded" />
+        <button 
+          className="md:hidden flex flex-col gap-1.5 p-2 ml-auto z-[100] relative"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          <motion.span 
+            animate={{ rotate: isMobileMenuOpen ? 45 : 0, y: isMobileMenuOpen ? 8 : 0 }} 
+            className="w-5 h-0.5 bg-[var(--color-primary-dark)] block rounded origin-center" 
+          />
+          <motion.span 
+            animate={{ opacity: isMobileMenuOpen ? 0 : 1 }} 
+            className="w-5 h-0.5 bg-[var(--color-primary-dark)] block rounded" 
+          />
+          <motion.span 
+            animate={{ rotate: isMobileMenuOpen ? -45 : 0, y: isMobileMenuOpen ? -8 : 0 }} 
+            className="w-5 h-0.5 bg-[var(--color-primary-dark)] block rounded origin-center" 
+          />
         </button>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-b border-[var(--color-tan)] shadow-lg md:hidden overflow-hidden z-[90]"
+          >
+            <div className="flex flex-col px-6 py-8 gap-6">
+              {navLinks.map((l) => (
+                <Link
+                  key={l.href}
+                  href={`/${locale}${l.href === "/" ? "" : l.href}`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-lg font-medium text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors"
+                >
+                  {t.nav[l.key as keyof typeof t.nav]}
+                </Link>
+              ))}
+              <div className="w-full h-[1px] bg-[var(--color-tan)] my-2" />
+              <div className="flex flex-col gap-4">
+                <Link
+                  href={pathname.replace(`/${locale}`, locale === "en" ? "/ar" : "/en")}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex justify-center items-center gap-2 text-sm font-semibold border border-[var(--color-primary-50)] px-4 py-3 rounded-full text-[var(--color-primary-dark)] hover:bg-[var(--color-primary-10)]"
+                >
+                  <span>{locale === "en" ? "Switch to العربية" : "Switch to English"}</span>
+                </Link>
+                <div onClick={() => setIsMobileMenuOpen(false)} className="w-full flex justify-center">
+                  <BookButton label={t.nav.book} size="lg" />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }

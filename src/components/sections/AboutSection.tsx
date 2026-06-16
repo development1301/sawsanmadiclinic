@@ -32,7 +32,7 @@ export function AboutSection() {
   const { t } = useLanguage();
 
   return (
-    <section id="about" className="py-28 px-6 max-w-6xl mx-auto">
+    <section id="about" className="py-16 md:py-24 lg:py-28 px-4 md:px-6 max-w-6xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         {/* Left image */}
         <motion.div className="lg:col-span-3 relative">
