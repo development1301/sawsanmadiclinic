@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@theme {
+  /* ─── Color Palette (Ethereal Light Mode) ───────────────────
+     We kept the legacy variable names but overhauled the values 
+     to an ultra-clean, pastel aura aesthetic.
+  ─────────────────────────────────────────────────────────── */
+  /* Primary accents: Luxury Gold / Champagne */
+  --color-primary:        rgb(212 175 55);  /* Metallic Gold */
+  --color-primary-dark:   rgb(15 23 42);    /* Slate 900 (Main text) */
+  --color-primary-80:     rgb(212 175 55 / 0.8);
+  --color-primary-50:     rgb(212 175 55 / 0.5);
+  --color-primary-10:     rgb(212 175 55 / 0.1);
+  --color-primary-6:      rgb(212 175 55 / 0.06);
+
+  /* Backgrounds: Pure white and ethereal grays */
+  --color-cream:          rgb(255 255 255); /* Pure White */
+  --color-cream-light:    rgb(250 250 252); /* Off-white */
+  --color-tan:            rgb(230 232 240); /* Icy border */
+  --color-tan-10:         rgb(230 232 240 / 0.1);
+
+  /* Text colors */
+  --color-body:           rgb(71 85 105);   /* Slate 500 */
+  --color-muted:          rgb(148 163 184); /* Slate 400 */
+  --color-dark:           rgb(15 23 42);    /* Slate 900 */
+  --color-near-black:     rgb(2 6 23);      /* Slate 950 */
+  --color-amber:          rgb(243 229 171); /* Soft Champagne */
+
+  /* Glassmorphism utility colors */
+  --color-white-10:       rgb(255 255 255 / 0.10);
+  --color-white-40:       rgb(255 255 255 / 0.40);
+  --color-white-70:       rgb(255 255 255 / 0.70);
+
+  /* ─── Typography ───────────────────────────────────────────── */
+  --font-serif:   var(--font-heading), "Times New Roman", serif;
+  --font-sans:    var(--font-display), var(--font-inter), system-ui, sans-serif;
+  --font-mono:    ui-monospace, "Cascadia Code", monospace;
+
+  /* ─── Border Radius ──────────────────────────────────────── */
+  --radius-pill:  9999px;
+  --radius-card:  24px;
+  --radius-lg:    16px;
+  --radius-sm:    10px;
+
+  /* ─── Box Shadows ────────────────────────────────────────── */
+  --shadow-card:  0 8px 40px rgb(15 23 42 / 0.05); /* Softer, wider slate shadow */
+  --shadow-btn:   0 4px 24px rgb(212 175 55 / 0.4); /* Glowing gold shadow */
+
+  /* ─── Custom Keyframe Animations ─────────────────────────── */
+  --animate-fade-up:    fade-up 0.6s ease forwards;
+  --animate-spin-slow:  spin 30s linear infinite;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Base Reset ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-body);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  background-image: radial-gradient(at 0% 0%, rgba(212, 175, 55, 0.05) 0px, transparent 50%),
+                    radial-gradient(at 100% 0%, rgba(243, 229, 171, 0.08) 0px, transparent 50%);
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    color: var(--color-primary-dark);
+    margin: 0;
+    line-height: 1.05;
+    letter-spacing: -0.02em; /* Editorial tighter tracking */
+  }
+
+  p { margin: 0; }
+}
+
+/* ─── Scrollbar Hide ───────────────────────────────────────── */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ─── Edge Mask for Infinite Marquee ───────────────────────── */
+.mask-edges {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+/* ─── Gold Glow Animation ───────────────────────────────────── */
+@keyframes gold-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(212, 175, 55, 0.9);
+  }
+}
+.animate-gold-glow {
+  animation: gold-glow 2.5s ease-in-out infinite;
+}
