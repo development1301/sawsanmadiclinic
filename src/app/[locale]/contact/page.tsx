@@ -3,10 +3,12 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { SectionBadge } from "@/components/ui/SectionBadge";
+import { useForm, ValidationError } from "@formspree/react";
 
 export default function ContactPage() {
   const { t } = useLanguage();
   const cp = t.contactPage;
+  const [state, handleSubmit] = useForm('meewdvjy');
 
   return (
     <main className="min-h-screen bg-[var(--color-cream-light)] pt-32 pb-24 px-6">
@@ -100,44 +102,58 @@ export default function ContactPage() {
             transition={{ delay: 0.5, duration: 0.6 }}
             className="lg:col-span-3 bg-white p-8 md:p-10 rounded-[var(--radius-card)] shadow-[var(--shadow-card)] border border-[var(--color-tan)]"
           >
-            <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="flex flex-col gap-2">
-                  <label className="text-sm font-semibold text-[var(--color-primary-dark)]">{cp.formName}</label>
-                  <input type="text" className="w-full px-4 py-3 rounded-lg border border-[var(--color-tan)] bg-[var(--color-cream-light)] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-50)] transition-all" placeholder="Jane Doe" required />
+            {state.succeeded ? (
+              <div className="flex flex-col items-center justify-center h-full min-h-[400px] gap-4 text-center">
+                <div className="w-16 h-16 bg-[var(--color-primary-10)] text-[var(--color-primary)] rounded-full flex items-center justify-center mb-4">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                 </div>
-                <div className="flex flex-col gap-2">
-                  <label className="text-sm font-semibold text-[var(--color-primary-dark)]">{cp.formPhone}</label>
-                  <input type="tel" className="w-full px-4 py-3 rounded-lg border border-[var(--color-tan)] bg-[var(--color-cream-light)] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-50)] transition-all" placeholder="+1 (555) 000-0000" required />
+                <h3 className="text-2xl font-serif text-[var(--color-primary-dark)]">Thank You!</h3>
+                <p className="text-[var(--color-body)]">Your message has been successfully sent. We will get back to you shortly.</p>
+              </div>
+            ) : (
+              <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="flex flex-col gap-2">
+                    <label className="text-sm font-semibold text-[var(--color-primary-dark)]">{cp.formName}</label>
+                    <input type="text" name="name" className="w-full px-4 py-3 rounded-lg border border-[var(--color-tan)] bg-[var(--color-cream-light)] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-50)] transition-all" placeholder="Jane Doe" required />
+                    <ValidationError prefix="Name" field="name" errors={state.errors} className="text-sm text-red-500" />
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <label className="text-sm font-semibold text-[var(--color-primary-dark)]">{cp.formPhone}</label>
+                    <input type="tel" name="phone" className="w-full px-4 py-3 rounded-lg border border-[var(--color-tan)] bg-[var(--color-cream-light)] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-50)] transition-all" placeholder="+1 (555) 000-0000" required />
+                    <ValidationError prefix="Phone" field="phone" errors={state.errors} className="text-sm text-red-500" />
+                  </div>
                 </div>
-              </div>
 
-              <div className="flex flex-col gap-2">
-                <label className="text-sm font-semibold text-[var(--color-primary-dark)]">{cp.formEmail}</label>
-                <input type="email" className="w-full px-4 py-3 rounded-lg border border-[var(--color-tan)] bg-[var(--color-cream-light)] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-50)] transition-all" placeholder="jane@example.com" required />
-              </div>
+                <div className="flex flex-col gap-2">
+                  <label className="text-sm font-semibold text-[var(--color-primary-dark)]">{cp.formEmail}</label>
+                  <input type="email" name="email" className="w-full px-4 py-3 rounded-lg border border-[var(--color-tan)] bg-[var(--color-cream-light)] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-50)] transition-all" placeholder="jane@example.com" required />
+                  <ValidationError prefix="Email" field="email" errors={state.errors} className="text-sm text-red-500" />
+                </div>
 
-              <div className="flex flex-col gap-2">
-                <label className="text-sm font-semibold text-[var(--color-primary-dark)]">{cp.formService}</label>
-                <select defaultValue="" className="w-full px-4 py-3 rounded-lg border border-[var(--color-tan)] bg-[var(--color-cream-light)] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-50)] transition-all appearance-none" required>
-                  <option value="" disabled>Select a treatment...</option>
-                  <option value="consultation">General Consultation</option>
-                  <option value="acne">Acne & Skin Health</option>
-                  <option value="botox">Botox & Fillers</option>
-                  <option value="laser">Laser Treatments</option>
-                  <option value="antiaging">Anti-Aging</option>
-                </select>
-              </div>
+                <div className="flex flex-col gap-2">
+                  <label className="text-sm font-semibold text-[var(--color-primary-dark)]">{cp.formService}</label>
+                  <select name="service" defaultValue="" className="w-full px-4 py-3 rounded-lg border border-[var(--color-tan)] bg-[var(--color-cream-light)] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-50)] transition-all appearance-none" required>
+                    <option value="" disabled>Select a treatment...</option>
+                    <option value="Acne and skin health">Acne and skin health</option>
+                    <option value="Botox and filler">Botox and filler</option>
+                    <option value="Laser treatments">Laser treatments</option>
+                    <option value="Anti-aging">Anti-aging</option>
+                  </select>
+                    <ValidationError prefix="Service" field="service" errors={state.errors} className="text-sm text-red-500" />
+                </div>
 
-              <div className="flex flex-col gap-2">
-                <label className="text-sm font-semibold text-[var(--color-primary-dark)]">{cp.formMessage}</label>
-                <textarea rows={4} className="w-full px-4 py-3 rounded-lg border border-[var(--color-tan)] bg-[var(--color-cream-light)] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-50)] transition-all resize-none" placeholder="Tell us what you are looking for..." required></textarea>
-              </div>
+                <div className="flex flex-col gap-2">
+                  <label className="text-sm font-semibold text-[var(--color-primary-dark)]">{cp.formMessage}</label>
+                  <textarea name="message" rows={4} className="w-full px-4 py-3 rounded-lg border border-[var(--color-tan)] bg-[var(--color-cream-light)] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-50)] transition-all resize-none" placeholder="Tell us what you are looking for..." required></textarea>
+                  <ValidationError prefix="Message" field="message" errors={state.errors} className="text-sm text-red-500" />
+                </div>
 
-              <button type="submit" className="mt-2 w-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-amber)] text-white font-semibold py-4 rounded-full shadow-lg hover:shadow-[0_8px_30px_var(--color-primary-50)] transition-all duration-300 transform hover:-translate-y-1">
-                {cp.submit}
-              </button>
-            </form>
+                <button type="submit" disabled={state.submitting} className="mt-2 w-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-amber)] text-white font-semibold py-4 rounded-full shadow-lg hover:shadow-[0_8px_30px_var(--color-primary-50)] transition-all duration-300 transform hover:-translate-y-1 disabled:opacity-70 disabled:cursor-not-allowed">
+                  {state.submitting ? "Sending..." : cp.submit}
+                </button>
+              </form>
+            )}
           </motion.div>
         </div>
       </div>
