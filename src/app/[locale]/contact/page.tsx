@@ -111,7 +111,10 @@ export default function ContactPage() {
                 <p className="text-[var(--color-body)]">Your message has been successfully sent. We will get back to you shortly.</p>
               </div>
             ) : (
-              <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
+              <form className="flex flex-col gap-6" action="https://formspree.io/f/meewdvjy" method="POST" onSubmit={(e) => {
+                // Ensure native form submission works as a fallback, or handle React 19 event properly
+                handleSubmit(e);
+              }}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="flex flex-col gap-2">
                     <label className="text-sm font-semibold text-[var(--color-primary-dark)]">{cp.formName}</label>
@@ -148,6 +151,12 @@ export default function ContactPage() {
                   <textarea name="message" rows={4} className="w-full px-4 py-3 rounded-lg border border-[var(--color-tan)] bg-[var(--color-cream-light)] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-50)] transition-all resize-none" placeholder="Tell us what you are looking for..." required></textarea>
                   <ValidationError prefix="Message" field="message" errors={state.errors} className="text-sm text-red-500" />
                 </div>
+
+                {state.errors && (
+                  <div className="text-red-500 text-sm mt-1">
+                    Please fix the errors above or try again later.
+                  </div>
+                )}
 
                 <button type="submit" disabled={state.submitting} className="mt-2 w-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-amber)] text-white font-semibold py-4 rounded-full shadow-lg hover:shadow-[0_8px_30px_var(--color-primary-50)] transition-all duration-300 transform hover:-translate-y-1 disabled:opacity-70 disabled:cursor-not-allowed">
                   {state.submitting ? "Sending..." : cp.submit}
