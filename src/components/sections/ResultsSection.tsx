@@ -37,8 +37,8 @@ export function ResultsSection() {
               className="rounded-[var(--radius-card)] overflow-hidden h-72 md:h-full transform-gpu"
             >
               <BeforeAfterSlider
-                beforeUrl="https://framerusercontent.com/images/KLz3YY5GDbbEwOvVSAqGFLXE0eI.jpg?width=900&height=1200"
-                afterUrl="https://framerusercontent.com/images/mtj5hoiyHHRIFp2NkDEtYGmM.jpg?width=900&height=1200"
+                beforeUrl="https://framerusercontent.com/images/mtj5hoiyHHRIFp2NkDEtYGmM.jpg?width=900&height=1200"
+                afterUrl="https://framerusercontent.com/images/KLz3YY5GDbbEwOvVSAqGFLXE0eI.jpg?width=900&height=1200"
                 caption={t.results.beforeAfterCaption}
                 subcaption={`🗓 ${t.results.beforeAfterSubcaption}`}
               />
@@ -55,8 +55,8 @@ export function ResultsSection() {
               className="bg-white/40 backdrop-blur-sm md:backdrop-blur-xl rounded-[var(--radius-card)] overflow-hidden border border-white/60 shadow-[var(--shadow-card)] relative min-h-[160px] h-full cursor-default transform-gpu group"
             >
               <Image
-                src="https://framerusercontent.com/images/x5bU5fSGGaNxXqI2iAQqSZi8nA4.jpg?width=810&height=649"
-                alt="Seamless client experience"
+                src="/images/hero-plump-lips.png"
+                alt="Plump lips treatment"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
                 sizes="33vw"
@@ -79,7 +79,7 @@ export function ResultsSection() {
               className="bg-white/40 backdrop-blur-sm md:backdrop-blur-xl rounded-[var(--radius-card)] border border-white/60 shadow-[var(--shadow-card)] p-6 flex flex-col gap-3 h-full cursor-default transform-gpu"
             >
               <p className="text-4xl md:text-5xl font-bold text-[var(--color-dark)] flex items-baseline">
-                <AnimatedNumber value={10} />+
+                <AnimatedNumber value={12} />+
               </p>
               <p className="text-[var(--color-body)] text-sm">
                 {t.results.years}
@@ -151,30 +151,6 @@ export function ResultsSection() {
             </motion.div>
           </TiltCard>
 
-          {/* Free skin analysis CTA */}
-          <TiltCard intensity={10}>
-            <motion.div
-              initial={{ opacity: 0, rotateX: -10, y: 40 }}
-              whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 0.8, delay: 0.3, type: "spring", stiffness: 100 }}
-              className="bg-[var(--color-primary-dark)] rounded-[var(--radius-card)] p-6 flex flex-col items-center justify-center gap-4 text-center h-full transform-gpu"
-            >
-              <span className="bg-white/10 text-white/80 text-xs font-semibold px-3 py-1 rounded-full tracking-wider uppercase backdrop-blur-sm border border-white/20">
-                {t.results.free}
-              </span>
-              <h3 className="text-2xl font-serif text-white">{t.results.freeTitle}</h3>
-              <p className="text-white/60 text-sm">
-                {t.results.freeDesc}
-              </p>
-              <BookButton
-                label={t.results.freeBtn}
-                variant="light"
-                size="sm"
-                className="mt-2"
-              />
-            </motion.div>
-          </TiltCard>
 
           {/* Treatment photo */}
           <TiltCard intensity={5}>
@@ -186,8 +162,8 @@ export function ResultsSection() {
               className="rounded-[var(--radius-card)] overflow-hidden relative min-h-[200px] h-full group transform-gpu"
             >
               <Image
-                src="https://framerusercontent.com/images/7wxUbyXdrvKzr2E5Hjt9SxhRN8.jpg?width=810&height=250"
-                alt="Treatment session"
+                src="/images/results/lips-volumed.png"
+                alt="Lips volume treatment"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
                 sizes="33vw"

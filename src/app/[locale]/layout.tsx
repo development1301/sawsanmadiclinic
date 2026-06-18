@@ -27,6 +27,7 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
+import { ContactModal } from "@/components/ui/ContactModal";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
 
 export const metadata: Metadata = {
@@ -79,9 +80,10 @@ export default async function RootLayout({
     >
       <body suppressHydrationWarning>
         <LanguageProvider locale={locale as "en" | "ar"}>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+            <ContactModal />
         </LanguageProvider>
       </body>
     </html>

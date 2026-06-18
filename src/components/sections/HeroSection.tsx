@@ -101,7 +101,7 @@ export function HeroSection() {
           animate="show"
           className="text-center max-w-4xl mx-auto mb-6 flex flex-col items-center"
         >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif text-[var(--color-primary-dark)] leading-tight flex flex-wrap justify-center gap-x-2 md:gap-x-3 gap-y-1">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[var(--color-primary-dark)] leading-tight flex flex-wrap justify-center gap-x-2 md:gap-x-3 gap-y-1 mb-4">
             {t.hero.tagline.split(" ").map((word, i) => (
               <span key={i} className="overflow-hidden inline-block pb-2">
                 <motion.span variants={wordVars} className="inline-block">
@@ -110,13 +110,21 @@ export function HeroSection() {
               </span>
             ))}
           </h1>
+          {t.hero.subTagline && (
+            <motion.p
+              variants={wordVars}
+              className="text-[var(--color-primary)] font-bold tracking-[0.2em] text-sm md:text-base uppercase"
+            >
+              {t.hero.subTagline}
+            </motion.p>
+          )}
         </motion.div>
 
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
-          className="text-[var(--color-body)] text-base md:text-lg text-center max-w-lg leading-relaxed mb-10"
+          className="text-[var(--color-body)] text-base md:text-lg text-center max-w-lg leading-relaxed mb-10 font-medium"
         >
           {t.hero.description}
         </motion.p>
@@ -126,7 +134,11 @@ export function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.8 }}
         >
-          <BookButton label={t.nav.book} size="lg" />
+          <BookButton 
+            label={t.nav.book} 
+            size="lg" 
+            onClick={() => window.dispatchEvent(new CustomEvent("open-contact"))} 
+          />
         </motion.div>
 
         {/* Unique Interactive Treatment Menu instead of wheel */}

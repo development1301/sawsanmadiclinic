@@ -55,14 +55,25 @@ export function Navbar() {
         {/* Left Nav */}
         <nav className="hidden md:flex items-center gap-8 w-1/3">
           {navLinks.slice(0, 2).map((l) => (
-            <Link
-              key={l.href}
-              href={`/${locale}${l.href === "/" ? "" : l.href}`}
-              className="relative text-sm font-medium text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors group py-1"
-            >
-              {t.nav[l.key as keyof typeof t.nav]}
-              <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[var(--color-primary)] transition-all duration-300 ease-out group-hover:w-full" />
-            </Link>
+              l.key === "contact" ? (
+                <button
+                  key={l.href}
+                  onClick={() => window.dispatchEvent(new CustomEvent("open-contact"))}
+                  className="relative text-sm font-medium text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors group py-1"
+                >
+                  {t.nav[l.key as keyof typeof t.nav]}
+                  <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[var(--color-primary)] transition-all duration-300 ease-out group-hover:w-full" />
+                </button>
+              ) : (
+                <Link
+                  key={l.href}
+                  href={`/${locale}${l.href === "/" ? "" : l.href}`}
+                  className="relative text-sm font-medium text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors group py-1"
+                >
+                  {t.nav[l.key as keyof typeof t.nav]}
+                  <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[var(--color-primary)] transition-all duration-300 ease-out group-hover:w-full" />
+                </Link>
+              )
           ))}
         </nav>
 
@@ -84,9 +95,16 @@ export function Navbar() {
                   unoptimized={true}
                 />
               </div>
-              <span className="font-serif text-xl md:text-2xl text-[var(--color-primary-dark)] tracking-tight whitespace-nowrap">
-                Sawsan Madi Clinic
-              </span>
+              <div className="flex flex-col items-start">
+                <span className="font-serif text-xl md:text-2xl text-[var(--color-primary-dark)] tracking-tight whitespace-nowrap leading-none">
+                  Sawsan Madi Clinic
+                </span>
+                {t.slogan && (
+                  <span className="text-[10px] md:text-[11px] text-[var(--color-primary)] tracking-widest uppercase font-medium mt-1 pl-[2px]">
+                    {t.slogan}
+                  </span>
+                )}
+              </div>
             </motion.div>
           </Link>
         </div>
@@ -94,14 +112,25 @@ export function Navbar() {
         {/* Right Nav + CTA + Language Toggle */}
         <div className="hidden md:flex items-center justify-end gap-6 w-1/3">
           {navLinks.slice(2).map((l) => (
-            <Link
-              key={l.href}
-              href={`/${locale}${l.href === "/" ? "" : l.href}`}
-              className="relative text-sm font-medium text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors group py-1"
-            >
-              {t.nav[l.key as keyof typeof t.nav]}
-              <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[var(--color-primary)] transition-all duration-300 ease-out group-hover:w-full" />
-            </Link>
+            l.key === "contact" ? (
+              <button
+                key={l.href}
+                onClick={() => window.dispatchEvent(new CustomEvent("open-contact"))}
+                className="relative text-sm font-medium text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors group py-1"
+              >
+                {t.nav[l.key as keyof typeof t.nav]}
+                <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[var(--color-primary)] transition-all duration-300 ease-out group-hover:w-full" />
+              </button>
+            ) : (
+              <Link
+                key={l.href}
+                href={`/${locale}${l.href === "/" ? "" : l.href}`}
+                className="relative text-sm font-medium text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors group py-1"
+              >
+                {t.nav[l.key as keyof typeof t.nav]}
+                <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[var(--color-primary)] transition-all duration-300 ease-out group-hover:w-full" />
+              </Link>
+            )
           ))}
           
           {/* Language Toggle Wrapper with Pointer */}
@@ -140,7 +169,12 @@ export function Navbar() {
             </motion.div>
           </div>
 
-          <BookButton label={t.nav.book} variant="light" size="sm" />
+          <BookButton 
+            label={t.nav.book} 
+            variant="light" 
+            size="sm" 
+            onClick={() => window.dispatchEvent(new CustomEvent("open-contact"))} 
+          />
         </div>
 
         {/* Mobile hamburger */}
@@ -175,14 +209,27 @@ export function Navbar() {
           >
             <div className="flex flex-col px-6 py-8 gap-6">
               {navLinks.map((l) => (
-                <Link
-                  key={l.href}
-                  href={`/${locale}${l.href === "/" ? "" : l.href}`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-lg font-medium text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors"
-                >
-                  {t.nav[l.key as keyof typeof t.nav]}
-                </Link>
+                l.key === "contact" ? (
+                  <button
+                    key={l.href}
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      window.dispatchEvent(new CustomEvent("open-contact"));
+                    }}
+                    className="text-lg font-medium text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors text-left"
+                  >
+                    {t.nav[l.key as keyof typeof t.nav]}
+                  </button>
+                ) : (
+                  <Link
+                    key={l.href}
+                    href={`/${locale}${l.href === "/" ? "" : l.href}`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-lg font-medium text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors"
+                  >
+                    {t.nav[l.key as keyof typeof t.nav]}
+                  </Link>
+                )
               ))}
               <div className="w-full h-[1px] bg-[var(--color-tan)] my-2" />
               <div className="flex flex-col gap-4">
@@ -194,7 +241,14 @@ export function Navbar() {
                   <span>{locale === "en" ? "Switch to العربية" : "Switch to English"}</span>
                 </Link>
                 <div onClick={() => setIsMobileMenuOpen(false)} className="w-full flex justify-center">
-                  <BookButton label={t.nav.book} size="lg" />
+                  <BookButton 
+                    label={t.nav.book} 
+                    size="lg" 
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      window.dispatchEvent(new CustomEvent("open-contact"));
+                    }}
+                  />
                 </div>
               </div>
             </div>

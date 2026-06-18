@@ -10,6 +10,7 @@ interface BookButtonProps {
   className?: string;
   variant?: "primary" | "light";
   size?: "sm" | "md" | "lg";
+  onClick?: (e: React.MouseEvent) => void;
 }
 
 export function BookButton({
@@ -18,11 +19,23 @@ export function BookButton({
   className,
   variant = "primary",
   size = "md",
+  onClick,
 }: BookButtonProps) {
   const { locale, t } = useLanguage();
   
   const finalLabel = label || t.nav.book;
-  const finalHref = href || `/${locale}/contact`;
+  const finalHref = href || undefined;
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (onClick) {
+      onClick(e);
+      return;
+    }
+    if (!href) {
+      e.preventDefault();
+      window.dispatchEvent(new CustomEvent("open-contact"));
+    }
+  };
 
   const base =
     "relative inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-colors duration-300 cursor-pointer select-none overflow-hidden group whitespace-nowrap";
@@ -43,6 +56,7 @@ export function BookButton({
   return (
     <motion.a
       href={finalHref}
+      onClick={handleClick}
       className={cn(base, variants[variant], sizes[size], className)}
       whileHover="hover"
       whileTap={{ scale: 0.95 }}

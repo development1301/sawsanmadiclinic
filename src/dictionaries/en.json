@@ -1,4 +1,5 @@
 {
+  "slogan": "your house for beauty",
   "nav": {
     "home": "Home",
     "about": "About",
@@ -7,9 +8,11 @@
     "book": "Book Appointment"
   },
   "hero": {
-    "tagline": "Radiant Skin, Beautiful Care",
-    "description": "Advanced dermatology and modern aesthetic treatments designed to improve your skin and reveal your natural glow.",
-    "explore": "Explore our specialities"
+    "tagline": "Amazing lips, unique look, radiant skin.",
+    "subTagline": "BE THE ONE",
+    "title": "Welcome to Sawsan Madi Clinic",
+    "description": "Improve your look naturally to reveal your beauty and natural glow.",
+    "scroll": "Explore Treatments"
   },
   "about": {
     "tagline": "The Sawsan Madi Clinic philosophy",
@@ -38,16 +41,16 @@
       "acne": {
         "title": "Acne & skin health",
         "description": "Personalized dermatology care for acne, pigmentation, and long-term skin maintenance.",
-        "duration": "45-60 Mins",
+        "duration": "15-60 Mins",
         "recoveryTime": "Immediate",
-        "benefits": ["Clears Breakouts", "Reduces Scarring", "Balances Oil Production"]
+        "benefits": ["Clears Breakouts", "Reduces Scarring", "Balances Oil Production", "Skin Tags Removal", "Pore Shrinking", "Skin Brightening"]
       },
       "botox": {
         "title": "Botox & fillers",
-        "description": "Subtle enhancements that refresh your features without changing who you are.",
+        "description": "Subtle enhancements that refresh your features without changing who you are. Stop age counter and stay young. Draw your lips the way you like.",
         "duration": "15-30 Mins",
         "recoveryTime": "No Downtime",
-        "benefits": ["Smooths Fine Lines", "Restores Volume", "Natural-Looking Results"]
+        "benefits": ["Stop Age Marks", "Smooths Fine Lines and Wrinkles", "Restores Volume and Get Your Amazing Lips Back", "Natural-Looking Results"]
       },
       "laser": {
         "title": "Laser treatments",
@@ -69,6 +72,34 @@
         "duration": "60 Mins",
         "recoveryTime": "1-2 Days",
         "benefits": ["Uses Natural Growth Factors", "Hair Restoration", "Improves Skin Elasticity"]
+      },
+      "hair_growth": {
+        "title": "Hair growth treatments",
+        "description": "Advanced solutions to stimulate hair follicles, reduce thinning, and promote healthy, fuller hair growth.",
+        "duration": "30-60 Mins",
+        "recoveryTime": "No Downtime",
+        "benefits": ["Stimulates Hair Follicles", "Reduces Hair Thinning", "Promotes Healthy Growth"]
+      },
+      "body_sculpting": {
+        "title": "Body sculpting treatments",
+        "description": "Non-invasive body contouring solutions to target stubborn fat, tone muscles, and refine your silhouette.",
+        "duration": "45-90 Mins",
+        "recoveryTime": "Minimal",
+        "benefits": ["Targets Stubborn Fat", "Tones Muscles", "Non-Invasive Contouring"]
+      },
+      "stem_cell": {
+        "title": "Stem cell & PDRN treatments",
+        "description": "Cutting-edge regenerative therapies using PDRN and stem cells to rejuvenate skin at a cellular level.",
+        "duration": "60 Mins",
+        "recoveryTime": "1-3 Days",
+        "benefits": ["Cellular Rejuvenation", "Improves Skin Elasticity", "Accelerates Healing"]
+      },
+      "salmon": {
+        "title": "Salmon DNA (Rejuran) treatments",
+        "description": "Deeply hydrating and repairing skin boosters derived from Salmon DNA to restore skin barrier and youthful elasticity.",
+        "duration": "45 Mins",
+        "recoveryTime": "1-2 Days",
+        "benefits": ["Repairs Skin Barrier", "Intense Hydration", "Improves Elasticity"]
       }
     }
   },
@@ -83,7 +114,7 @@
     "since": "Since 2016",
     "tailored": "Tailored to your vision",
     "tailoredDesc": "Customized treatment plans for every skin type and concern.",
-    "satisfaction": "2k+ Global trusted customers",
+    "satisfaction": "28K+ Global trusted customers",
     "free": "Free",
     "freeTitle": "Skin analysis",
     "freeDesc": "Expert consultation at no cost",
@@ -95,29 +126,31 @@
   },
   "cta": {
     "tagline": "Begin your journey",
-    "title": "Ready for radiant skin?",
-    "description": "Book your comprehensive consultation today. Our specialists will create a customized treatment plan tailored exclusively to your goals.",
+    "title": "Ready for perfect, voluminous lips?",
+    "description": "Enhancing lip volume is one of our signature specialties. Book your consultation today and let our experts craft a customized treatment plan for beautifully natural, full lips.",
     "button": "Schedule Consultation"
   },
   "founderHero": {
     "tagline": "Meet The Founder",
-    "title": "A vision for radiant confidence.",
+    "title": "A vision for beauty standards and confidence look.",
     "description": "\"I built Sawsan Madi Clinic because I believe true beauty comes from within. My mission is to empower you with the knowledge and treatments to feel confident in your own skin, every single day.\"",
     "signature": "— Dr. Sawsan Madi",
     "video": "Video Player Running..."
   },
   "founderStory": {
-    "title": "My personal journey to better skin.",
-    "p1": "Growing up, I struggled with severe cystic acne. I remember the frustration of trying countless products and treatments, only to feel unseen by rushed doctors who didn't take the time to understand my skin's unique needs.",
-    "p2": "That experience fundamentally changed my path. I decided to become the dermatologist I wished I had. I spent over a decade studying the intricate biology of the skin, traveling globally to master the most advanced laser technologies and holistic therapies.",
-    "p3": "When I opened Sawsan Madi Clinic, my goal was simple: to create a sanctuary where science meets empathy. We don't just treat symptoms; we listen to your story, understand your lifestyle, and build a tailored path to lasting skin health.",
-    "p4": "Welcome to a new standard of dermatological care. We're so glad you're here."
+    "title": "My idea to better presence of beauty.",
+    "p1": "We are constantly adopting new technology to fulfill the highest standards of beauty. By providing top-of-the-line materials and utilizing advanced techniques, we ensure our patients achieve the best possible results.",
+    "p2": "Safety and quality are our top priorities. We make sure to strictly adhere to approved materials and protocols mandated by Kuwait's Ministry of Health, maintaining the absolute highest standards in the dermatology and aesthetic field.",
+    "p3": "Our commitment goes beyond just using the best tools. We believe that true beauty is built on a foundation of trust, medical precision, and continuous innovation. Every treatment is designed to enhance your natural features while ensuring your complete well-being.",
+    "p4": "Welcome to a clinic where aesthetic excellence meets rigorous medical standards. We are dedicated to providing you with a safe, effective, and transformative experience."
   },
   "mission": {
     "title": "Credentials & Philosophy",
     "boardTitle": "Board-Certified Dermatologist",
     "boardDesc": "Completed extensive medical training and residency in dermatology. She is dedicated to advancing the field of aesthetic medicine and actively contributes to pioneering research in laser therapeutics.",
     "expTitle": "Years of Clinical Experience",
+    "provenExpTitle": "Proven Expertise",
+    "provenExpDesc": "With over a decade of hands-on clinical practice and continuous international training, Dr. Sawsan has cultivated an exceptional track record in advanced dermatological procedures and cosmetic enhancements.",
     "quote": "\"Skin health is not about achieving an impossible standard of perfection. It's about restoring balance, enhancing your natural features, and giving you the quiet confidence to show up authentically in the world.\"",
     "quoteAuthor": "The Clinic Philosophy"
   },
@@ -133,6 +166,11 @@
     "t2": "Botox & Fillers",
     "t3": "Laser Treatments",
     "t4": "Anti-Aging",
+    "t5": "PRP Therapy",
+    "t6": "Hair Growth Treatments",
+    "t7": "Body Sculpting",
+    "t8": "Stem Cell & PDRN",
+    "t9": "Salmon DNA (Rejuran)",
     "legal": "Legal",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
@@ -149,6 +187,8 @@
     "whatsappDesc": "+1 (555) 000-0000",
     "instagram": "Follow on Instagram",
     "instagramDesc": "@dr.sawsan_madiclinic",
+    "tiktok": "Follow on TikTok",
+    "tiktokDesc": "@dr.sawsan_madiclinic",
     "formName": "Full Name",
     "formPhone": "Phone Number",
     "formEmail": "Email Address",

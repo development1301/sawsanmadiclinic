@@ -93,6 +93,27 @@ export default function ContactPage() {
                 <p className="text-sm text-[var(--color-body)] leading-relaxed">{cp.instagramDesc}</p>
               </div>
             </motion.a>
+
+            {/* TikTok Card */}
+            <motion.a
+              href="https://www.tiktok.com/@dr.sawsan_madiclinic"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5 }}
+              className="bg-white p-6 rounded-[var(--radius-lg)] shadow-[var(--shadow-card)] border border-[var(--color-tan)] hover:border-black transition-colors group flex items-start gap-4"
+            >
+              <div className="w-12 h-12 bg-[var(--color-primary-6)] rounded-full flex items-center justify-center shrink-0 group-hover:bg-black transition-all">
+                <svg className="w-5 h-5 text-[var(--color-primary)] group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 2.78-1.15 5.54-3.33 7.23-1.9 1.48-4.4 2.1-6.73 1.71-2.4-.41-4.57-1.78-5.92-3.79-1.42-2.1-1.78-4.83-1.07-7.24.62-2.1 2.05-3.88 3.99-4.82 2.06-.98 4.54-1.14 6.7-.42v4.26c-1.28-.52-2.8-.46-3.95.27-.92.59-1.5 1.58-1.68 2.65-.22 1.34.2 2.79 1.25 3.59.88.66 2.12.82 3.16.48 1.48-.48 2.4-1.95 2.45-3.51.04-4.89.01-9.79.03-14.69.01-1.03.01-2.06.01-3.09z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-serif text-xl text-[var(--color-primary-dark)] mb-1">{cp.tiktok}</h3>
+                <p className="text-sm text-[var(--color-body)] leading-relaxed">{cp.tiktokDesc}</p>
+              </div>
+            </motion.a>
           </div>
 
           {/* Right Pane - Form */}
@@ -142,6 +163,11 @@ export default function ContactPage() {
                     <option value="Botox and filler">Botox and filler</option>
                     <option value="Laser treatments">Laser treatments</option>
                     <option value="Anti-aging">Anti-aging</option>
+                    <option value="PRP therapy">PRP therapy</option>
+                    <option value="Hair growth treatments">Hair growth treatments</option>
+                    <option value="Body sculpting treatments">Body sculpting treatments</option>
+                    <option value="Stem cell & PDRN treatments">Stem cell & PDRN treatments</option>
+                    <option value="Salmon DNA (Rejuran) treatments">Salmon DNA (Rejuran) treatments</option>
                   </select>
                     <ValidationError prefix="Service" field="service" errors={state.errors} className="text-sm text-red-500" />
                 </div>

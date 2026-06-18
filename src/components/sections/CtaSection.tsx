@@ -43,13 +43,7 @@ export function CtaSection() {
           />
 
           <div className="absolute inset-0 z-0">
-            <Image
-              src="https://framerusercontent.com/images/4gRqLtjxPBtwZmePma4I5n97gcI.jpg?width=1820&height=961"
-              alt="Book appointment background"
-              fill
-              className="object-cover opacity-20 mix-blend-luminosity"
-              sizes="100vw"
-            />
+
             <div
               className="absolute inset-0"
               style={{
@@ -81,8 +75,8 @@ export function CtaSection() {
 
           <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden md:block z-0">
             <Image
-              src="https://framerusercontent.com/images/ipAbYHifCDoQsFyitpmqxk7yTIQ.jpg?width=600&height=799"
-              alt="Doctor consultation"
+              src="/images/hero-plump-lips.png"
+              alt="Beautiful voluminous lips"
               fill
               className="object-cover object-top opacity-50 mix-blend-luminosity"
               sizes="50vw"

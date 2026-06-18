@@ -31,15 +31,19 @@ export function StackedCards({ cards }: StackedCardsProps) {
   return (
     <div ref={containerRef} className="relative w-full" style={{ height: `${cards.length * 100}vh` }}>
       {cards.map((card, index) => {
-        const targetScale = 1 - (cards.length - index) * 0.05;
+        // Cap the scaling so the bottom cards don't become microscopic
+        const distanceToTop = cards.length - index;
+        const targetScale = 1 - Math.min(distanceToTop * 0.04, 0.2); 
+        
         return (
           <Card
             key={card.id}
             i={index}
             {...card}
             progress={scrollYProgress}
-            range={[index * 0.25, 1]}
+            range={[index / Math.max(1, cards.length - 1), 1]}
             targetScale={targetScale}
+            cardsLength={cards.length}
           />
         );
       })}
@@ -52,9 +56,10 @@ interface CardProps extends CardData {
   progress: any;
   range: number[];
   targetScale: number;
+  cardsLength: number;
 }
 
-function Card({ id, i, title, description, imageUrl, icon, progress, range, targetScale, duration, recoveryTime, benefits }: CardProps) {
+function Card({ id, i, title, description, imageUrl, icon, progress, range, targetScale, duration, recoveryTime, benefits, cardsLength }: CardProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   
   // Parallax for the image
@@ -65,21 +70,13 @@ function Card({ id, i, title, description, imageUrl, icon, progress, range, targ
 
   const imageScale = useTransform(scrollYProgress, [0, 1], [1.3, 1]);
   
+  const isLastCard = i === cardsLength - 1;
+
   // Scale down the whole card as it goes to the back
-  const scale = useTransform(progress, range, [1, targetScale]);
+  const scale = useTransform(progress, range, [1, isLastCard ? 1 : targetScale]);
   
   // Fade out ONLY the content so it doesn't overlap text through the glassmorphism!
-  const contentOpacity = useTransform(progress, range, [1, 0]);
-
-  // Glare Physics Engine
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
-    const { left, top } = currentTarget.getBoundingClientRect();
-    mouseX.set(clientX - left);
-    mouseY.set(clientY - top);
-  }
+  const contentOpacity = useTransform(progress, range, [1, isLastCard ? 1 : 0]);
 
   const { locale } = useLanguage();
   const durationLabel = locale === 'ar' ? 'المدة' : 'Duration';
@@ -90,28 +87,13 @@ function Card({ id, i, title, description, imageUrl, icon, progress, range, targ
   return (
     <div id={id} ref={containerRef} className="h-screen flex items-start justify-center sticky top-0 pt-[10vh]">
       <motion.div
-        onMouseMove={handleMouseMove}
         style={{
           scale,
           transformOrigin: "top center",
-          top: `${i * 30}px`,
+          top: `${Math.min(i * 12, 60)}px`,
         }}
-        className="group relative flex flex-col md:flex-row w-[90vw] max-w-5xl h-[85vh] md:h-[650px] rounded-[32px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white/40 backdrop-blur-3xl transform-gpu border border-white/40"
+        className="group relative flex flex-col md:flex-row w-[90vw] max-w-5xl h-[85vh] md:h-[650px] rounded-[32px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white/40 backdrop-blur-md transform-gpu border border-white/40"
       >
-        {/* Dynamic Light Glare */}
-        <motion.div
-          className="pointer-events-none absolute -inset-px rounded-[32px] opacity-0 transition duration-500 group-hover:opacity-100 z-50"
-          style={{
-            background: useMotionTemplate`
-              radial-gradient(
-                800px circle at ${mouseX}px ${mouseY}px,
-                rgba(255, 255, 255, 0.4),
-                transparent 80%
-              )
-            `,
-          }}
-        />
-
         {/* Content Side - Fades out safely */}
         <motion.div 
           style={{ opacity: contentOpacity }}

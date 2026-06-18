@@ -45,7 +45,7 @@ export function AboutSection() {
             className="rounded-[var(--radius-card)] overflow-hidden aspect-[3/4] relative will-change-transform"
           >
             <Image
-              src="https://framerusercontent.com/images/GxQO8asItSl76Fw0bPEJgPjibvI.jpg?width=810&height=849"
+              src="/images/about/left-image.png"
               alt="Sawsan Madi Clinic treatment room"
               fill
               className="object-cover"
@@ -92,7 +92,7 @@ export function AboutSection() {
             className="rounded-[var(--radius-card)] overflow-hidden aspect-[3/4] relative will-change-transform"
           >
             <Image
-              src="https://framerusercontent.com/images/vZWId5rca0iP0PQazENoHugDL5c.jpg?width=810&height=932"
+              src="/images/about/right-image.png"
               alt="Sawsan Madi Clinic laser treatment"
               fill
               className="object-cover"
@@ -105,10 +105,10 @@ export function AboutSection() {
       {/* Second row — smaller images */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
         {[
-          "https://framerusercontent.com/images/fRkN7RTfKeL08Kpz6CrDLlrDc.jpg?width=100&height=100",
-          "https://framerusercontent.com/images/GXrVkAKOuyZ6jsH2mk3ALm0ncw.jpg?width=100&height=100",
-          "https://framerusercontent.com/images/hpCeYxp9YhmeNk4SNFOzNVe8M.jpg?width=100&height=100",
-          "https://framerusercontent.com/images/jSFZ7ROTAOOS0hkJqlUtWsKmKe8.jpg?width=100&height=100",
+          "/images/about/small-1.png",
+          "/images/about/small-2.png",
+          "/images/about/small-3.png",
+          "/images/about/small-4.png",
         ].map((url, i) => (
           <motion.div
             key={i}
