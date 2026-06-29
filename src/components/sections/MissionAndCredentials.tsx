@@ -78,7 +78,7 @@ export function MissionAndCredentials() {
               </div>
               <div className="flex-1 w-full flex justify-center md:justify-end">
                 <div className="relative w-full max-w-sm rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.1)] border-4 border-white/80">
-                  <img src="/images/dr_sawsan_certificate.png" alt="Board Certificate" className="w-full h-auto object-cover" />
+                  <img src="/images/dr_sawsan_certificate.png?v=2" alt="Board Certificate" className="w-full h-auto object-cover" />
                 </div>
               </div>
             </motion.div>
