@@ -51,8 +51,8 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-4 group cursor-pointer mb-2">
-              <div className="relative w-12 h-12 bg-white rounded-xl shadow-lg border border-white/10 p-1 flex items-center justify-center overflow-hidden">
-                <Image src="/logonobg.png" alt="Logo" fill className="object-contain" unoptimized={true} />
+              <div className="relative w-12 h-12 rounded-xl flex items-center justify-center overflow-hidden">
+                <Image src="/logo-transparent.png?v=3" alt="Logo" fill className="object-contain" unoptimized={true} />
               </div>
               <span className="text-2xl font-serif text-white group-hover:text-[var(--color-primary)] transition-colors">
                 Sawsan Madi Clinic
