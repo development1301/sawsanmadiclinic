@@ -52,7 +52,7 @@ export function Footer() {
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
               <div className="relative w-8 h-8 rounded shrink-0 overflow-hidden bg-white/10 flex items-center justify-center p-1">
-                <Image src="/logo.jpg" alt="Logo" fill className="object-contain" unoptimized={true} />
+                <Image src="/logo-transparent.png?v=2" alt="Logo" fill className="object-contain" unoptimized={true} />
               </div>
               <span className="font-serif text-white text-xl">Sawsan Madi Clinic</span>
             </div>
