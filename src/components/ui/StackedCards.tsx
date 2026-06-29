@@ -33,8 +33,8 @@ export function StackedCards({ cards }: StackedCardsProps) {
       {cards.map((card, index) => {
         // Cap the scaling so the bottom cards don't become microscopic
         const distanceToTop = cards.length - index;
-        const targetScale = 1 - Math.min(distanceToTop * 0.04, 0.2); 
-        
+        const targetScale = 1 - Math.min(distanceToTop * 0.04, 0.2);
+
         return (
           <Card
             key={card.id}
@@ -61,7 +61,7 @@ interface CardProps extends CardData {
 
 function Card({ id, i, title, description, imageUrl, icon, progress, range, targetScale, duration, recoveryTime, benefits, cardsLength }: CardProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  
+
   // Parallax for the image
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -69,12 +69,12 @@ function Card({ id, i, title, description, imageUrl, icon, progress, range, targ
   });
 
   const imageScale = useTransform(scrollYProgress, [0, 1], [1.3, 1]);
-  
+
   const isLastCard = i === cardsLength - 1;
 
   // Scale down the whole card as it goes to the back
   const scale = useTransform(progress, range, [1, isLastCard ? 1 : targetScale]);
-  
+
   // Fade out ONLY the content so it doesn't overlap text through the glassmorphism!
   const contentOpacity = useTransform(progress, range, [1, isLastCard ? 1 : 0]);
 
@@ -95,7 +95,7 @@ function Card({ id, i, title, description, imageUrl, icon, progress, range, targ
         className="group relative flex flex-col md:flex-row w-[90vw] max-w-5xl h-[85vh] md:h-[650px] rounded-[32px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white/40 backdrop-blur-md transform-gpu border border-white/40"
       >
         {/* Content Side - Fades out safely */}
-        <motion.div 
+        <motion.div
           style={{ opacity: contentOpacity }}
           className="flex-1 flex flex-col justify-center p-8 md:p-12 z-10 bg-gradient-to-r from-white/90 to-transparent pointer-events-auto overflow-y-auto"
         >
@@ -124,7 +124,7 @@ function Card({ id, i, title, description, imageUrl, icon, progress, range, targ
                   </div>
                 )}
               </div>
-              
+
               {benefits && benefits.length > 0 && (
                 <div className="flex flex-col gap-2">
                   <span className="text-xs uppercase tracking-widest font-bold text-[var(--color-primary)] mb-1">{benefitsLabel}</span>
@@ -149,7 +149,7 @@ function Card({ id, i, title, description, imageUrl, icon, progress, range, targ
         </motion.div>
 
         {/* Image Side - Fades out safely */}
-        <motion.div 
+        <motion.div
           style={{ opacity: contentOpacity }}
           className="relative h-1/3 md:h-full md:w-1/2 overflow-hidden rounded-b-[32px] md:rounded-r-[32px] md:rounded-bl-none pointer-events-auto shrink-0"
         >

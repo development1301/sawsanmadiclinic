@@ -87,7 +87,7 @@ export function Navbar() {
             >
               <div className="relative w-12 h-12 md:w-16 md:h-16 flex-shrink-0">
                 <Image 
-                  src="/logo.jpg" 
+                  src="/logo-transparent.png" 
                   alt="Logo" 
                   fill 
                   className="object-contain drop-shadow-sm"
@@ -104,6 +104,9 @@ export function Navbar() {
                     {t.slogan}
                   </span>
                 )}
+                <span className="text-[8px] md:text-[9px] text-[var(--color-body)] mt-1 max-w-[280px] leading-tight pl-[2px]">
+                  Authorized Business Partner and Training Center for American Board of Regenerative Medicine
+                </span>
               </div>
             </motion.div>
           </Link>
