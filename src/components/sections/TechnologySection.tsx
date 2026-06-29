@@ -39,14 +39,14 @@ export function TechnologySection() {
             className="relative"
           >
             <div className="relative w-full aspect-[4/3] rounded-[32px] overflow-hidden shadow-2xl border-4 border-white bg-white">
-              {/* Fallback color while PDF loads */}
-              <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
-                <span className="text-gray-400 font-medium">Loading Document...</span>
-              </div>
-              <iframe
-                src="/images/affiliation_certificate.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH"
-                title="Certificate of Affiliation"
-                className="absolute inset-0 w-full h-full z-10 border-none"
+              {/* Fallback color while image loads */}
+              <div className="absolute inset-0 bg-gray-100 flex items-center justify-center" />
+              <Image
+                src="/images/affiliation_certificate.png?v=2"
+                alt="Certificate of Affiliation"
+                fill
+                className="object-contain relative z-10 p-2"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
             
