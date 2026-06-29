@@ -42,7 +42,7 @@ export function TechnologySection() {
               {/* Fallback color while image loads */}
               <div className="absolute inset-0 bg-gray-100 flex items-center justify-center" />
               <Image
-                src="/images/affiliation_certificate.png?v=2"
+                src="/images/affiliation_certificate.jpg?v=3"
                 alt="Certificate of Affiliation"
                 fill
                 className="object-contain relative z-10 p-2"
