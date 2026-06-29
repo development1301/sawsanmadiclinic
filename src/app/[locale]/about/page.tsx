@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { FounderHeroSection } from "@/components/sections/FounderHeroSection";
 import { FounderStorySection } from "@/components/sections/FounderStorySection";
 import { MissionAndCredentials } from "@/components/sections/MissionAndCredentials";
-import { CtaSection } from "@/components/sections/CtaSection";
+import { TechnologySection } from "@/components/sections/TechnologySection";
 
 export const metadata: Metadata = {
   title: "About the Founder | Sawsan Madi Clinic",
@@ -15,7 +15,7 @@ export default function AboutPage() {
       <FounderHeroSection />
       <FounderStorySection />
       <MissionAndCredentials />
-      <CtaSection />
+      <TechnologySection />
     </div>
   );
 }

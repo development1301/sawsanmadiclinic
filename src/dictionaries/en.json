@@ -195,5 +195,10 @@
     "formService": "Service of Interest",
     "formMessage": "Any specific concerns?",
     "submit": "Request Appointment"
+  },
+  "technology": {
+    "tagline": "Advanced Innovation",
+    "title": "State-of-the-Art Technology & Materials",
+    "description": "At Sawsan Madi Clinic, we believe that achieving exceptional results requires continuous innovation. We are dedicated to staying up-to-date with the highest standards in aesthetic medicine, utilizing only the most advanced technology and premium materials. Our commitment to ongoing education and global affiliations ensures that every treatment is performed with the utmost precision, safety, and effectiveness."
   }
 }
