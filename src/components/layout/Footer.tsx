@@ -119,13 +119,23 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs">
-            © {new Date().getFullYear()} Sawsan Madi Clinic. {t.footer.rights}
-          </p>
-          <p className="text-xs">
-            {t.footer.bottomline}
-          </p>
+        <div className="border-t border-white/10 pt-8 flex flex-col items-center gap-6">
+          <div className="w-full flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-xs">
+              © {new Date().getFullYear()} Sawsan Madi Clinic. {t.footer.rights}
+            </p>
+            <p className="text-xs">
+              {t.footer.bottomline}
+            </p>
+          </div>
+          <a 
+            href="https://luexedigital.vercel.app/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-[11px] text-white/40 hover:text-white/80 transition-colors"
+          >
+            Designed & Developed by Luexe Digital
+          </a>
         </div>
       </div>
     </footer>
